@@ -33,7 +33,7 @@ typedef struct s_input
 typedef struct s_fork
 {
 	int 			fork_status;
-	
+
 	pthread_mutex_t fork_mutex;
 
 }t_fork;
@@ -63,5 +63,9 @@ typedef struct s_philo
 }t_philo;
 
 int		ft_atoi(const char *str);
+
+t_input init_input(int ac, char **av);
+t_fork *init_forks(t_input *input);
+t_death init_death(void);
 
 # endif
