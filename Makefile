@@ -1,5 +1,6 @@
-SRCS	= main.c \
+SRCS	= main.c  \
 		  utils.c \
+		  data.c  \
 
 OBJS	= $(SRCS:.c=.o)
 
