@@ -20,52 +20,46 @@
 # include <sys/time.h>
 # include <limits.h>
 
-typedef struct s_input
-{
-	int num_philo;
-	int time_to_die;
-	int time_to_eat;
-	int time_to_sleep;
-	int num_meals;
-
-}t_input;
-
 typedef struct s_fork
 {
 	int 			fork_status;
 
-	pthread_mutex_t fork_mutex;
+	pthread_mutex_t mutex_fork;
 
 }t_fork;
-
-typedef struct s_death
-{
-	int 			is_dead;
-
-	pthread_mutex_t death_mutex;
-
-}t_death;
 
 typedef struct s_philo
 {
 	int 			id;
 	int 			total_meals;
-	unsigned long 	last_meal;
-	unsigned long	start_time;
-
-	t_input			input;
-	t_fork			*fork;
-	t_time			*time;
-	t_death			*death;
-
-	pthread_t		philo;
+	int				has_fork;
+	long int	 	last_meal;
+	pthread_t		thread_philo;
 
 }t_philo;
 
-int		ft_atoi(const char *str);
+typedef struct s_data
+{
+	int					dead
+	int					time_to_die;
+	int					time_to_eat;
+	int					time_to_sleep;
+	int					num_meals;
+	int					num_philo;
+	long int			start;
+	pthread_mutex_t		mutex_dead;
+	pthread_mutex_t		mutex_print;
+	t_philo				*philo;
+	t_fork				*fork;
 
-t_input init_input(int ac, char **av);
-t_fork *init_forks(t_input *input);
-t_death init_death(void);
+
+}t_data;
+
+t_data		*data(void);
+long int	get_time(void);
+int			ft_atoi(const char *str);
+void 		init_data(int ac, char **av);
+void 		init_philo(void);
+void 		end_prog(void);
 
 # endif
