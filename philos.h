@@ -60,6 +60,7 @@ long int	get_time(void);
 void		print_msg(t_philo *philo, char *msg);
 int			ft_atoi(const char *str);
 int			death_status(void);
+int 		is_dead(t_philo *philo);
 void 		init_data(int ac, char **av);
 void 		init_philo(void);
 void 		end_prog(void);

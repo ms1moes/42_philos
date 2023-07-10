@@ -21,3 +21,19 @@ int death_status(void)
     pthread_mutex_unlock(&data()->mutex_dead);
     return (death);
 }
+
+int is_dead(t_philo *philo)
+{
+    if (death_status())
+        return (1);
+    if ((get_time() - philo->last_meal) >= data()->die_time)
+    {
+        pthread_mutex_lock(&data()->mutex_dead);
+        data()->dead++;
+        if(data()->dead == 1)
+            print_msg(philo, "died");
+        pthread_mutex_unlock(&data()->mutex_dead);
+        return (1);
+    }
+    return (0);
+}
