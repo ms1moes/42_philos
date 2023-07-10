@@ -40,7 +40,13 @@ void init_simulation(void *arg)
     philo = arg;
     if(philo->id % 2 == 0)
         usleep(10000);
-
+    while (!death_status() && philo->total_meals != data()->num_meals)
+    {
+        //eat
+        //sleep
+        is_dead(philo);
+    }
+    return (NULL);
 }
 
 void init_philo(void)
