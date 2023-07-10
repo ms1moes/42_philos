@@ -57,7 +57,9 @@ typedef struct s_data
 
 t_data		*data(void);
 long int	get_time(void);
+void		print_msg(t_philo *philo, char *msg);
 int			ft_atoi(const char *str);
+int			death_status(void);
 void 		init_data(int ac, char **av);
 void 		init_philo(void);
 void 		end_prog(void);

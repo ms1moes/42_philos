@@ -6,7 +6,7 @@
 /*   By: msimoes- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:38:33 by msimoes-          #+#    #+#             */
-/*   Updated: 2023/07/06 18:51:02 by msimoes-         ###   ########.fr       */
+/*   Updated: 2023/07/10 01:28:01 by msimoes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,12 @@ void end_prog(void)
 		free(data()->philo);
 	exit(0);
 	
+}
+
+void	print_msg(t_philo *philo, char *msg)
+{
+	pthread_mutex_lock(&data()->mutex_print);
+	if (!death_status())
+		printf("%ld %i %s\n", (get_time() - data()->start), philo->id, msg);
+	pthread_mutex_unlock(&data()->mutex_print);
 }
