@@ -62,6 +62,8 @@ int			ft_atoi(const char *str);
 int			death_status(void);
 int 		is_dead(t_philo *philo);
 void 		init_data(int ac, char **av);
+void    	sleeping(t_philo *philo, long int start);
+void 		eating(t_philo *philo);
 void 		init_philo(void);
 void 		end_prog(void);
 
