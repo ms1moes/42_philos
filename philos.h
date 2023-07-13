@@ -32,7 +32,7 @@ typedef struct s_philo
 {
 	int 			id;
 	int 			total_meals;
-	int				has_fork;
+	int				forks;
 	long int	 	last_meal;
 	pthread_t		thread_philo;
 

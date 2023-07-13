@@ -65,7 +65,7 @@ void init_philo(void)
     {
         data()->philo[i].id = i + 1;
         data()->philo[i].total_meals = 0;
-        data()->philo[i].has_fork = 0;
+        data()->philo[i].forks = 0;
         data()->philo[i].last_meal = data()->start;
         pthread_create(&data()->philo[i].thread_philo, NULL, \
         &init_simulation, &data()->philo[i]);
