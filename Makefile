@@ -1,6 +1,9 @@
 SRCS	= main.c  \
+		  death.c \
+		  eat.c   \
+		  init.c  \
+		  sleep.c \
 		  utils.c \
-		  data.c  \
 
 OBJS	= $(SRCS:.c=.o)
 

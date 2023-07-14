@@ -33,7 +33,7 @@ void init_data(int ac, char **av)
     pthread_mutex_init(&data()->mutex_print, NULL);
 }
 
-void init_simulation(void *arg)
+void *init_simulation(void *arg)
 {
     t_philo *philo;
 
@@ -42,8 +42,8 @@ void init_simulation(void *arg)
         usleep(10000);
     while (!death_status() && philo->total_meals != data()->num_meals)
     {
-        //eat
-        //sleep
+        eating(philo);
+        sleeping(philo, get_time());
         is_dead(philo);
     }
     return (NULL);
@@ -54,7 +54,7 @@ void init_philo(void)
     int i;
 
     i = -1;
-    while (++1 < data()->philo_nbr)
+    while (++i < data()->num_philo)
     {
         pthread_mutex_init(&data()->fork[i].mutex_fork, NULL);
         data()->fork[i].fork_status = 1;

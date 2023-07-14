@@ -30,6 +30,7 @@ static void return_fork(t_philo *philo, int fork)
     pthread_mutex_lock(&data()->fork[fork].mutex_fork);
 	data()->fork[fork].fork_status = 1;
 	pthread_mutex_unlock(&data()->fork[fork].mutex_fork);
+    philo->forks = 0;
 }
 
 void eating(t_philo *philo)
@@ -42,14 +43,14 @@ void eating(t_philo *philo)
     while (!death_status() && philo->forks != 2)
     {
         take_fork(philo, first);
-        is_dead(philo)
+        is_dead(philo);
         take_fork(philo, second);
         is_dead(philo);
     }
     philo->last_meal = get_time();
     if ((philo->total_meals <= data()->num_meals || data()->num_meals == -1))
         print_msg(philo, "is eating");
-    while (!check_dead() && ((get_time() - philo->last_meal) < data()->time_to_eat))
+    while (!death_status() && ((get_time() - philo->last_meal) < data()->time_to_eat))
 	{
 		is_dead(philo);
 		usleep(1);

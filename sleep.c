@@ -16,7 +16,7 @@ void    sleeping(t_philo *philo, long int start)
 {
     if (philo->total_meals != data()->num_meals)
 		print_msg(philo, "is sleeping");
-	while (!check_dead() && ((get_time() - start) < data()->time_to_sleep))
+	while (!death_status() && ((get_time() - start) < data()->time_to_sleep))
 	{
 		is_dead(philo);
 		usleep(1);

@@ -26,7 +26,7 @@ int is_dead(t_philo *philo)
 {
     if (death_status())
         return (1);
-    if ((get_time() - philo->last_meal) >= data()->die_time)
+    if ((get_time() - philo->last_meal) >= data()->time_to_die)
     {
         pthread_mutex_lock(&data()->mutex_dead);
         data()->dead++;
