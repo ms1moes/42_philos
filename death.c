@@ -31,7 +31,7 @@ int is_dead(t_philo *philo)
         pthread_mutex_lock(&data()->mutex_dead);
         data()->dead++;
         if(data()->dead == 1)
-            print_msg(philo, "died");
+            printf("%ld %i %s\n", (get_time() - data()->start), philo->id, "died");
         pthread_mutex_unlock(&data()->mutex_dead);
         return (1);
     }
