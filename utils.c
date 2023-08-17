@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msimoes- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: msimoes- <msimoes-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:38:33 by msimoes-          #+#    #+#             */
-/*   Updated: 2023/07/10 01:48:41 by msimoes-         ###   ########.fr       */
+/*   Updated: 2023/08/17 14:30:00 by msimoes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,20 @@ long int	get_time(void)
 	return (current_time.tv_sec * 1000 + current_time.tv_usec / 1000);
 }
 
-void end_prog(void)
+void	end_prog(void)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < data()->num_philo)
 		pthread_mutex_destroy(&data()->fork[i].mutex_fork);
 	pthread_mutex_destroy(&data()->mutex_dead);
 	pthread_mutex_destroy(&data()->mutex_print);
-	if(data()->fork)
+	if (data()->fork)
 		free(data()->fork);
-	if(data()->philo)
+	if (data()->philo)
 		free(data()->philo);
 	exit(0);
-	
 }
 
 void	print_msg(t_philo *philo, char *msg)

@@ -22,18 +22,17 @@
 
 typedef struct s_fork
 {
-	int 			fork_status;
-
-	pthread_mutex_t mutex_fork;
+	int				fork_status;
+	pthread_mutex_t	mutex_fork;
 
 }t_fork;
 
 typedef struct s_philo
 {
-	int 			id;
-	int 			total_meals;
+	int				id;
+	int				total_meals;
 	int				forks;
-	long int	 	last_meal;
+	long int		last_meal;
 	pthread_t		thread_philo;
 
 }t_philo;
@@ -52,7 +51,6 @@ typedef struct s_data
 	t_philo				*philo;
 	t_fork				*fork;
 
-
 }t_data;
 
 t_data		*data(void);
@@ -60,11 +58,11 @@ long int	get_time(void);
 void		print_msg(t_philo *philo, char *msg);
 int			ft_atoi(const char *str);
 int			death_status(void);
-int 		is_dead(t_philo *philo);
-void 		init_data(int ac, char **av);
-void    	sleeping(t_philo *philo, long int start);
-void 		eating(t_philo *philo);
-void 		init_philo(void);
-void 		end_prog(void);
+int			is_dead(t_philo *philo);
+void		init_data(int ac, char **av);
+void		sleeping(t_philo *philo, long int start);
+void		eating(t_philo *philo);
+void		init_philo(void);
+void		end_prog(void);
 
-# endif
+#endif

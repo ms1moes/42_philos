@@ -19,14 +19,14 @@ t_data	*data(void)
 	return (&data);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-    if(ac == 5 || ac == 6)
-    {
-        init_data(ac, av);
-        if (data()->time_to_die > 0 && data()->time_to_eat > 0 && \
-        data()->time_to_sleep > 0 && data()->num_philo > 0)
-        init_philo();
-        end_prog();
-    }
+	if (ac == 5 || ac == 6)
+	{
+		init_data(ac, av);
+		if (data()->time_to_die > 0 && data()->time_to_eat > 0 && \
+		data()->time_to_sleep > 0 && data()->num_philo > 0)
+			init_philo();
+		end_prog();
+	}
 }

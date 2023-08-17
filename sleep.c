@@ -12,9 +12,9 @@
 
 #include "philos.h"
 
-void    sleeping(t_philo *philo, long int start)
+void	sleeping(t_philo *philo, long int start)
 {
-    if (philo->total_meals != data()->num_meals)
+	if (philo->total_meals != data()->num_meals)
 		print_msg(philo, "is sleeping");
 	while (!death_status() && ((get_time() - start) < data()->time_to_sleep))
 	{
